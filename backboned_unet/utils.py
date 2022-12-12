@@ -109,7 +109,7 @@ def dice_score(input, target, classes, ignore_index=-100):
     valid = valid.float()
 
     # converting to onehot image with class channels
-    onehot_target = torch.LongTensor(target.shape[0], classes, target.shape[-2], target.shape[-1]).zero_().cuda()
+    onehot_target = torch.LongTensor(target.shape[0], classes, target.shape[-2], target.shape[-1]).zero_()
     onehot_target.scatter_(1, target, 1)  # write ones along "channel" dimension
     # classes_in_image = onehot_gt_tensor.sum([2, 3]) > 0
     onehot_target = onehot_target.float()
